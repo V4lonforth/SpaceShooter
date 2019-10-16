@@ -6,7 +6,7 @@ public class AIShip : Ship
     public AIHealth shipHealth { get; private set; }
     public AIAttack shipAttack { get; private set; }
 
-    void Start()
+    protected void Start()
     {
         shipMovement = GetComponent<AIMovement>();
         shipHealth = GetComponent<AIHealth>();

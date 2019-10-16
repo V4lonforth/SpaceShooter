@@ -5,7 +5,7 @@ public class ShipMovement : MonoBehaviour
     public float acceleration;
     public float maxSpeed;
 
-    private new Rigidbody2D rigidbody;
+    protected new Rigidbody2D rigidbody;
 
     protected void Start()
     {

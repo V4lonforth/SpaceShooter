@@ -2,7 +2,7 @@
 
 public static class MathHelpers
 {
-    private const float PI = Mathf.PI;
+    private const float PI = Mathf.PI * Mathf.Rad2Deg;
     private const float PI2 = PI * 2f;
 
     public static Vector2 RadianToVector2(float radian)

@@ -2,6 +2,9 @@
 
 public class WandererMovement : AIMovement
 {
+    public float minDistance;
+    public float maxDistance;
+
     private Vector2 nextPosition;
 
     protected new void Start()

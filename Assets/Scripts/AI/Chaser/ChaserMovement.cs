@@ -22,7 +22,9 @@ public class ChaserMovement : AIMovement
 
     protected new void Start()
     {
+        base.Start();
         attack = GetComponent<ChaserAttack>();
+        attackStage = AttackStage.Flee;
     }
 
     protected void Update()
@@ -50,7 +52,7 @@ public class ChaserMovement : AIMovement
                     attackStage = AttackStage.Flee;
                 break;
             case AttackStage.Flee:
-                direction = attack.Target.position - transform.position;
+                direction = transform.position - attack.Target.position;
                 distance = direction.magnitude;
                 requiredAngle = MathHelpers.Vector2ToDegree(direction);
                 currentAngle = MathHelpers.LerpAngle(rigidbody.rotation, requiredAngle, rotationSpeed * Time.deltaTime);
@@ -58,7 +60,7 @@ public class ChaserMovement : AIMovement
 
                 currentDirection = MathHelpers.DegreeToVector2(currentAngle);
                 SetMovement(currentDirection, currentDirection);
-                if (distance < distanceToAttack)
+                if (distance >= distanceToAttack)
                     attackStage = AttackStage.Attack;
                 break;
         }

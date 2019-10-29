@@ -1,24 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ShipAttack : MonoBehaviour
 {
-    private List<Gun> guns;
+    public List<GunGroup> guns;
+    private int currentGroup;
+
+    public bool gunsDischargeSynchronized;
 
     public bool hasSpread;
     public float spread;
 
-    protected void Start()
+    public Vector2 AttackDirection { get; protected set; }
+
+    protected void Awake()
     {
-        guns = new List<Gun>(Array.FindAll(gameObject.GetComponentsInChildren<Gun>(), element => !(element is Turret)));
+        foreach (GunGroup gunGroup in guns)
+            gunGroup.StartReloading();
+    }
+
+    protected void Update()
+    {
+        AttackDirection = MathHelpers.DegreeToVector2(transform.rotation.eulerAngles.z);
+        Attack(AttackDirection);
     }
 
     protected void Attack(Vector2 direction)
     {
         if (hasSpread)
-            direction = MathHelpers.AddSpread(direction, spread);
-        foreach (Gun gun in guns)
-            gun.Attack(direction);
+            direction = MathHelpers.AddDegreeSpread(direction, spread);
+        if (gunsDischargeSynchronized)
+        {
+            if (guns[currentGroup].Attack(direction))
+                currentGroup = (currentGroup + 1) % guns.Count;
+        }
+        else
+        {
+            foreach (GunGroup gunGroup in guns)
+                gunGroup.Attack(direction);
+        }
+    }
+
+    protected void Wait()
+    {
+        if (gunsDischargeSynchronized)
+        {
+            if (currentGroup != 0)
+                Attack(AttackDirection);
+        }
+        else
+        {
+            foreach (GunGroup gunGroup in guns)
+                gunGroup.Wait();
+        }
     }
 }

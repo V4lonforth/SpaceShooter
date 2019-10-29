@@ -7,7 +7,7 @@ public class AIShipsSpawner : MonoBehaviour
 
     private float timeToSpawn;
 
-    private void Start()
+    private void Awake()
     {
         timeToSpawn = 1 / spawnsPerSecond;
     }

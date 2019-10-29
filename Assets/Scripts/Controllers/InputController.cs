@@ -24,10 +24,6 @@ public class InputController : MonoBehaviour
     private void Awake()
     {
         Input.simulateMouseWithTouches = false;
-    }
-
-    private void Start()
-    {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerActiveAbility = player.GetComponent<ActiveAbility>();
         interactableUIs = FindObjectsOfType<InteractableUI>();
@@ -49,12 +45,21 @@ public class InputController : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+    }
+
     private void Update()
     {
         TryingActivateAbility = false;
         IsPointingOnMap = false;
         AttackDirection = attackJoystick.Axes;
         MovementDirection = movementJoystick.Axes;
+
+        Vector2 keyboardInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (keyboardInput != Vector2.zero)
+            MovementDirection = keyboardInput;
+
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase != TouchPhase.Ended && IsTouchAvailable(touch.fingerId))

@@ -8,7 +8,7 @@ public class ShipsController : MonoBehaviour
 
     public static ShipsController Instance;
 
-    private void Start()
+    private void Awake()
     {
         Ships = new List<AIShip>();
         Instance = this;

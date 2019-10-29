@@ -2,6 +2,8 @@
 
 public class Projectile : MonoBehaviour
 {
+    public GameObject explosionPrefab;
+
     public float speed;
     public float damage;
 
@@ -25,16 +27,18 @@ public class Projectile : MonoBehaviour
             Destroy();
     }
 
-    public void Launch(string parentTag, Vector2 direction)
+    public virtual void Launch(Gun gun, string parentTag, Vector2 movingDirection, float rotation)
     {
         liveTime = maxLiveTime;
         ParentTag = parentTag;
-        rigidbody.rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        rigidbody.velocity = direction * speed;
+        rigidbody.rotation = rotation;
+        rigidbody.velocity = movingDirection * speed;
     }
 
     public virtual void Destroy()
     {
+        if (explosionPrefab)
+            Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

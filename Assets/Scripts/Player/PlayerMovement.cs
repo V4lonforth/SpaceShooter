@@ -2,10 +2,10 @@
 {
     private InputController inputController;
 
-    private new void Start()
+    private new void Awake()
     {
         inputController = FindObjectOfType<InputController>();
-        base.Start();
+        base.Awake();
     }
 
     private void Update()

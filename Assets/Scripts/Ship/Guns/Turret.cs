@@ -20,7 +20,7 @@ public class Turret : Gun
     {
         Vector2 direction = CalculateTargetPosition(transform.position, projectile.GetComponent<Projectile>().speed, target.position, targetRigidbody.velocity) - (Vector2)transform.position;
         transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
-        Attack(hasSpread ? MathHelpers.AddSpread(direction, spread) : direction);
+        Attack(hasSpread ? MathHelpers.AddDegreeSpread(direction, spread) : direction);
     }
 
     private void FindTarget()

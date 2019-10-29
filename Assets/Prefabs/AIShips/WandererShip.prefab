@@ -45,8 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 692779837267421302, guid: 8c49eee60a03ca84f94f7c8a2380a627,
     type: 3}
-  attacksPerSecond: 0.5
-  startDelay: 0
 --- !u!1 &982977820983739873
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,8 +90,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 692779837267421302, guid: 8c49eee60a03ca84f94f7c8a2380a627,
     type: 3}
-  attacksPerSecond: 0.5
-  startDelay: 0
 --- !u!1 &3030366361009909104
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,8 +135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 692779837267421302, guid: 8c49eee60a03ca84f94f7c8a2380a627,
     type: 3}
-  attacksPerSecond: 0.5
-  startDelay: 0.15
 --- !u!1 &5015120314383341219
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,8 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 692779837267421302, guid: 8c49eee60a03ca84f94f7c8a2380a627,
     type: 3}
-  attacksPerSecond: 0.5
-  startDelay: 0.15
 --- !u!1 &7853003567211081593
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,8 +225,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 692779837267421302, guid: 8c49eee60a03ca84f94f7c8a2380a627,
     type: 3}
-  attacksPerSecond: 0.5
-  startDelay: 0.3
 --- !u!1 &7853003567641166408
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +239,7 @@ GameObject:
   - component: {fileID: 7853003567641166407}
   - component: {fileID: 1215725126545566487}
   - component: {fileID: 7174401985824904931}
-  - component: {fileID: 7853003567641166409}
+  - component: {fileID: 4074018924562880526}
   - component: {fileID: 7853003567641166406}
   m_Layer: 9
   m_Name: WandererShip
@@ -389,7 +379,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7853003567641166408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865cea8771be00a4098cf036aeca1714, type: 3}
+  m_Script: {fileID: 11500000, guid: 027ee63b4ae51c848bfd0d0fc128581c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7174401985824904931
@@ -408,7 +398,7 @@ MonoBehaviour:
   maxSpeed: 2
   minDistance: 3
   maxDistance: 10
---- !u!114 &7853003567641166409
+--- !u!114 &4074018924562880526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -417,11 +407,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 7853003567641166408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bddbeb12210b0f24d9a4ae83c829c8ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d794c74a808f0a43ad3676228b6f2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guns:
+  - guns:
+    - {fileID: 3675902896979972819}
+    - {fileID: 3082101245304489011}
+    reloadTime: 0.7
+    hasSpread: 0
+    spread: 0
+  - guns:
+    - {fileID: 7924046603650254446}
+    - {fileID: 6015496756253628165}
+    reloadTime: 0.15
+    hasSpread: 0
+    spread: 0
+  - guns:
+    - {fileID: 7853003567211081594}
+    - {fileID: 7853003568118167335}
+    reloadTime: 0.15
+    hasSpread: 0
+    spread: 0
+  gunsDischargeSynchronized: 1
   hasSpread: 0
-  spread: 0.15
+  spread: 0
 --- !u!114 &7853003567641166406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +441,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7853003567641166408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aca8bfd5f2f4df4897fea6f2a25af25, type: 3}
+  m_Script: {fileID: 11500000, guid: 994160db7e93f994391067280a40c10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
@@ -480,5 +490,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 692779837267421302, guid: 8c49eee60a03ca84f94f7c8a2380a627,
     type: 3}
-  attacksPerSecond: 0.5
-  startDelay: 0.3

@@ -45,8 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8519367717184977676, guid: 207387e91cb7eab42bd89a522743a67a,
     type: 3}
-  attacksPerSecond: 0.25
-  startDelay: 2
 --- !u!1 &1727425309
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,8 +90,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8519367717184977676, guid: 207387e91cb7eab42bd89a522743a67a,
     type: 3}
-  attacksPerSecond: 0.25
-  startDelay: 2
 --- !u!1 &739119520611713601
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,8 +135,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8519367717184977676, guid: 207387e91cb7eab42bd89a522743a67a,
     type: 3}
-  attacksPerSecond: 0.25
-  startDelay: 2
 --- !u!1 &739119521117450096
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +287,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 739119521117450096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865cea8771be00a4098cf036aeca1714, type: 3}
+  m_Script: {fileID: 11500000, guid: 027ee63b4ae51c848bfd0d0fc128581c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &739119521117450098
@@ -313,7 +307,7 @@ MonoBehaviour:
   distanceToAttack: 10
   distanceToFlee: 8
   rotationSpeed: 50
-  angleToAttack: 10
+  angleToAttack: 0.001
 --- !u!114 &739119521117450097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,8 +320,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5b00475ca8b804d997ba22659d1cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guns:
+  - guns:
+    - {fileID: 739119520611713602}
+    - {fileID: 739119521581586975}
+    reloadTime: 2
+    hasSpread: 0
+    spread: 0
+  - guns:
+    - {fileID: 783870906}
+    - {fileID: 1727425311}
+    reloadTime: 2
+    hasSpread: 0
+    spread: 0
+  gunsDischargeSynchronized: 0
   hasSpread: 0
-  spread: 0.1
+  spread: 0
 --- !u!114 &739119521117450110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,10 +345,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 739119521117450096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aca8bfd5f2f4df4897fea6f2a25af25, type: 3}
+  m_Script: {fileID: 11500000, guid: 994160db7e93f994391067280a40c10b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 100
+  maxHealthPoints: 80
 --- !u!1 &739119521581586974
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,5 +394,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 8519367717184977676, guid: 207387e91cb7eab42bd89a522743a67a,
     type: 3}
-  attacksPerSecond: 0.25
-  startDelay: 2

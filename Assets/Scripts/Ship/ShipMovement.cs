@@ -7,7 +7,7 @@ public class ShipMovement : MonoBehaviour
 
     protected new Rigidbody2D rigidbody;
 
-    protected void Start()
+    protected void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
     }

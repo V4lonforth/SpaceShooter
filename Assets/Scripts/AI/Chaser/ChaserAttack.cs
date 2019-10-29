@@ -12,5 +12,7 @@
     {
         if (chaserMovement.CanAttack)
             base.Update();
+        else
+            Wait();
     }
 }

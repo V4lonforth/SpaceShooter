@@ -4,17 +4,18 @@ public class PlayerAttack : ShipAttack
 {
     private InputController inputController;
 
-    private new void Start()
+    protected new void Awake()
     {
+        base.Awake();
         inputController = FindObjectOfType<InputController>();
-        base.Start();
     }
 
-    private void Update()
+    protected new void Update()
     {
-        if (inputController.AttackDirection != Vector2.zero)
-        {
-            Attack(transform.rotation * Vector2.right);
-        }
+        AttackDirection = inputController.AttackDirection;
+        if (AttackDirection != Vector2.zero)
+            Attack(AttackDirection);
+        else
+            Wait();
     }
 }

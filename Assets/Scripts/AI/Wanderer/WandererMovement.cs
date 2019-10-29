@@ -7,9 +7,8 @@ public class WandererMovement : AIMovement
 
     private Vector2 nextPosition;
 
-    protected new void Start()
+    protected void Start()
     {
-        base.Start();
         nextPosition = transform.position;
     }
 

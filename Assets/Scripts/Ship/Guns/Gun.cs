@@ -4,28 +4,17 @@ public class Gun : MonoBehaviour
 {
     public GameObject projectile;
 
-    public float attacksPerSecond;
-    public float startDelay;
-
-    private float timeToAttack;
-    private Ship parent;
+    public Ship Parent { get; private set; }
 
     protected void Start()
     {
-        timeToAttack = startDelay;
-        parent = GetComponentInParent<Ship>();
+        Parent = GetComponentInParent<Ship>();
     }
 
     public void Attack(Vector2 direction)
     {
-        timeToAttack -= Time.deltaTime;
-        if (timeToAttack <= 0f)
-        {
-            GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
-            proj.GetComponent<Projectile>().Launch(parent.tag, direction);
-
-            timeToAttack += 1f / attacksPerSecond;
-        }
+        GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
+        proj.GetComponent<Projectile>().Launch(this, Parent.tag, direction, Parent.transform.rotation.eulerAngles.z);
     }
 
     protected Vector2 CalculateTargetPosition(Vector2 shooterPosition, float projectileSpeed, Vector2 targetPosition, Vector2 targetVelocity)

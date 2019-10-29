@@ -25,9 +25,14 @@ public static class MathHelpers
         return Vector2ToRadian(vector) * Mathf.Rad2Deg;
     }
 
-    public static Vector2 AddSpread(Vector2 direction, float spread)
+    public static Vector2 AddDegreeSpread(Vector2 direction, float spread)
     {
-        return RadianToVector2(Mathf.Atan2(direction.y, direction.x) + UnityEngine.Random.Range(-spread, spread));
+        return AddRadianSpread(direction, Mathf.Deg2Rad * spread);
+    }
+
+    public static Vector2 AddRadianSpread(Vector2 direction, float spread)
+    {
+        return RadianToVector2(Mathf.Atan2(direction.y, direction.x) + Random.Range(-spread, spread));
     }
 
     public static float LerpAngle(float a, float b, float speed)

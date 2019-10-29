@@ -20,9 +20,9 @@ public class ChaserMovement : AIMovement
 
     private ChaserAttack attack;
 
-    protected new void Start()
+    protected new void Awake()
     {
-        base.Start();
+        base.Awake();
         attack = GetComponent<ChaserAttack>();
         attackStage = AttackStage.Flee;
     }
